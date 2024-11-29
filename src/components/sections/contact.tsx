@@ -2,13 +2,16 @@
 
 import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Facebook, Loader2 } from 'lucide-react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope, faPhone, faMapPin } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faLinkedin, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
-import emailjs from 'emailjs-com';
+import { Loader2 } from 'lucide-react'
+import emailjs from 'emailjs-com'
 
 export function Contact() {
   const form = useRef<HTMLFormElement | null>(null)
@@ -46,19 +49,19 @@ export function Contact() {
 
   const contactInfo = [
     {
-      icon: <Mail className="h-5 w-5" />,
+      icon: <FontAwesomeIcon icon={faEnvelope} className="h-5 w-5" />,
       title: "Email",
       value: "haseebshahbazpk786@gmail.com",
       href: "mailto:haseebshahbazpk786@gmail.com"
     },
     {
-      icon: <Phone className="h-5 w-5" />,
+      icon: <FontAwesomeIcon icon={faPhone} className="h-5 w-5" />,
       title: "Phone",
       value: "+92 302 2951029",
       href: "tel:+923022951029"
     },
     {
-      icon: <MapPin className="h-5 w-5" />,
+      icon: <FontAwesomeIcon icon={faMapPin} className="h-5 w-5" />,
       title: "Location",
       value: "Karachi, KHI, Pakistan",
       href: "https://maps.google.com/?q=Karachi,Pakistan"
@@ -67,22 +70,22 @@ export function Contact() {
 
   const socialLinks = [
     {
-      icon: <Github className="h-6 w-6" />,
+      icon: <FontAwesomeIcon icon={faGithub} className="h-5 w-5" />,
       href: "https://github.com/haseebshahbaz",
       label: "GitHub"
     },
     {
-      icon: <Linkedin className="h-6 w-6" />,
+      icon: <FontAwesomeIcon icon={faLinkedin} className="h-5 w-5" />,
       href: "https://www.linkedin.com/in/mdhaseeb07/",
       label: "LinkedIn"
     },
     {
-      icon: <Instagram className="h-6 w-6" />,
+      icon: <FontAwesomeIcon icon={faInstagram} className="h-5 w-5" />,
       href: "https://www.instagram.com/ch.haseebshahbaz/",
       label: "Instagram"
     },
     {
-      icon: <Facebook className="h-6 w-6" />,
+      icon: <FontAwesomeIcon icon={faFacebook} className="h-5 w-5" />,
       href: "https://www.facebook.com/profile.php?id=100013907506597",
       label: "Facebook"
     }
@@ -93,8 +96,8 @@ export function Contact() {
       <div className="container px-4 md:px-6">
         <ScrollAnimation>
           <div className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">Get in Touch</h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">Get in Touch</h2>
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto">
               Have a project in mind? Let's collaborate and create something amazing together.
             </p>
           </div>
@@ -104,7 +107,7 @@ export function Contact() {
           <ScrollAnimation>
             <Card>
               <CardHeader>
-                <CardTitle>Send Me a Message</CardTitle>
+                <CardTitle className="text-xl md:text-2xl">Send Me a Message</CardTitle>
               </CardHeader>
               <CardContent>
                 <form ref={form} onSubmit={sendEmail} className="space-y-4">
@@ -169,7 +172,7 @@ export function Contact() {
           <ScrollAnimation>
             <Card>
               <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
+                <CardTitle className="text-xl md:text-2xl">Contact Information</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="space-y-4">
@@ -194,7 +197,7 @@ export function Contact() {
 
                 <div>
                   <h3 className="font-semibold mb-4">Follow Me</h3>
-                  <div className="flex gap-4">
+                  <div className="flex flex-wrap gap-4">
                     {socialLinks.map((link, index) => (
                       <Button
                         key={index}
@@ -223,4 +226,3 @@ export function Contact() {
     </section>
   )
 }
-

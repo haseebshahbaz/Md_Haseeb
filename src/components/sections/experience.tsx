@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Briefcase } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-
+import { ScrollAnimation } from "@/components/ui/scroll-animation"
 
 const experiences = [
   {
@@ -30,57 +30,51 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24 bg-background">
+    <section id="experience" className="py-16 md:py-24 ">
       <div className="container px-4 md:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="space-y-12"
-        >
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Professional Experience
-            </h2>
-            <p className="mx-auto max-w-[700px] text-muted-foreground">
+        <ScrollAnimation>
+          <div className="text-center space-y-4 mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">Professional Experience</h2>
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto">
               My journey in the tech industry and the impact I've made
             </p>
           </div>
+        </ScrollAnimation>
 
-          <div className="grid gap-8">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card>
-                  <CardHeader className="flex flex-row items-center gap-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <Briefcase className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-xl">{exp.role}</CardTitle>
-                      <p className="text-sm text-muted-foreground">{exp.company} | {exp.duration}</p>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="list-disc pl-5 space-y-2">
-                      {exp.achievements.map((achievement, idx) => (
-                        <li key={idx} className="text-muted-foreground">
-                          {achievement}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        <div className="grid md:grid-cols-2 gap-6">
+          {experiences.map((exp, index) => (
+            <ScrollAnimation key={index}>
+              <Card className="h-full">
+                <CardHeader className="flex flex-row items-center gap-4">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <Briefcase className="h-5 w-5 md:h-6 md:w-6" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg md:text-xl">{exp.role}</CardTitle>
+                    <p className="text-sm text-muted-foreground">{exp.company}</p>
+                    <p className="text-sm text-muted-foreground">{exp.duration}</p>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className="list-disc pl-5 space-y-2">
+                    {exp.achievements.map((achievement, idx) => (
+                      <motion.li
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: idx * 0.1 }}
+                        viewport={{ once: true }}
+                        className="text-sm md:text-base text-muted-foreground"
+                      >
+                        {achievement}
+                      </motion.li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </ScrollAnimation>
+          ))}
+        </div>
       </div>
     </section>
   )
