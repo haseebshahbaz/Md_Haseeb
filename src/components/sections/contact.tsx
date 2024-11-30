@@ -3,15 +3,15 @@
 import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faPhone, faMapPin } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faLinkedin, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope, faPhone, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
+import {faGithub, faLinkedin, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ScrollAnimation } from "@/components/ui/scroll-animation"
-import { Loader2 } from 'lucide-react'
 import emailjs from 'emailjs-com'
+import { Loader2 } from 'lucide-react'
 
 export function Contact() {
   const form = useRef<HTMLFormElement | null>(null)
@@ -61,7 +61,7 @@ export function Contact() {
       href: "tel:+923022951029"
     },
     {
-      icon: <FontAwesomeIcon icon={faMapPin} className="h-5 w-5" />,
+      icon: <FontAwesomeIcon icon={faMapMarkerAlt} className="h-5 w-5" />,
       title: "Location",
       value: "Karachi, KHI, Pakistan",
       href: "https://maps.google.com/?q=Karachi,Pakistan"
@@ -92,7 +92,7 @@ export function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-background">
+    <section id="contact" className="py-16 md:py-24">
       <div className="container px-4 md:px-6">
         <ScrollAnimation>
           <div className="text-center space-y-4 mb-12">
@@ -105,7 +105,7 @@ export function Contact() {
 
         <div className="grid lg:grid-cols-2 gap-8">
           <ScrollAnimation>
-            <Card>
+            <Card className="border-primary/10 border-2">
               <CardHeader>
                 <CardTitle className="text-xl md:text-2xl">Send Me a Message</CardTitle>
               </CardHeader>
@@ -170,7 +170,7 @@ export function Contact() {
           </ScrollAnimation>
 
           <ScrollAnimation>
-            <Card>
+            <Card className="border-primary/10 border-2">
               <CardHeader>
                 <CardTitle className="text-xl md:text-2xl">Contact Information</CardTitle>
               </CardHeader>
@@ -184,7 +184,7 @@ export function Contact() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-4 p-3 rounded-lg hover:bg-muted transition-colors"
                     >
-                      <div className="p-2 bg-primary/10 rounded-lg">
+                      <div className="p-2 bg-primary/20 rounded-lg">
                         {item.icon}
                       </div>
                       <div>

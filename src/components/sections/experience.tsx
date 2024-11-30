@@ -30,7 +30,7 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-16 md:py-24 ">
+    <section id="experience" className="py-16 md:py-24">
       <div className="container px-4 md:px-6">
         <ScrollAnimation>
           <div className="text-center space-y-4 mb-12">
@@ -44,9 +44,9 @@ export function Experience() {
         <div className="grid md:grid-cols-2 gap-6">
           {experiences.map((exp, index) => (
             <ScrollAnimation key={index}>
-              <Card className="h-full">
+              <Card className="h-full border-primary/10 border-2">
                 <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="p-2 bg-primary/10 rounded-lg">
+                  <div className="p-2 bg-primary/20 rounded-lg">
                     <Briefcase className="h-5 w-5 md:h-6 md:w-6" />
                   </div>
                   <div>

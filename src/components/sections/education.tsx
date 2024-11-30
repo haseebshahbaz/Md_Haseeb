@@ -57,9 +57,9 @@ export function Education() {
             <h3 className="text-xl md:text-2xl font-bold">Education</h3>
             {education.map((item, index) => (
               <ScrollAnimation key={index}>
-                <Card>
+                <Card className="border-primary/10 border-2">
                   <CardHeader className="flex flex-row items-center gap-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
+                    <div className="p-2 bg-primary/20 rounded-lg">
                       {item.icon}
                     </div>
                     <div>
@@ -79,9 +79,9 @@ export function Education() {
             <h3 className="text-xl md:text-2xl font-bold">Certifications</h3>
             {certifications.map((item, index) => (
               <ScrollAnimation key={index}>
-                <Card>
+                <Card className="border-primary/10 border-2">
                   <CardHeader className="flex flex-row items-center gap-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
+                    <div className="p-2 bg-primary/20 rounded-lg">
                       {item.icon}
                     </div>
                     <div>
@@ -102,3 +102,4 @@ export function Education() {
     </section>
   )
 }
+

@@ -5,14 +5,16 @@ import { Experience } from "@/components/sections/experience"
 import { Hero } from "@/components/sections/hero"
 import { Projects } from "@/components/sections/projects"
 import { Skills } from "@/components/sections/skills"
+import { Services } from "@/components/sections/services"
 import { Nav } from "@/components/layout/nav"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen ">
       <Nav />
       <Hero />
       <About />
+      <Services />
       <Skills />
       <Education />
       <Experience />
