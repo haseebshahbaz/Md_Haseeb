@@ -1,32 +1,28 @@
-import { About } from "@/components/sections/about"
-import { Contact } from "@/components/sections/contact"
-import { Education } from "@/components/sections/education"
-import { Experience } from "@/components/sections/experience"
-import { Hero } from "@/components/sections/hero"
-import { Projects } from "@/components/sections/projects"
-import { Skills } from "@/components/sections/skills"
-import { Services } from "@/components/sections/services"
 import { Nav } from "@/components/layout/nav"
+import { Hero } from "@/components/sections/hero"
+import { About } from "@/components/sections/about"
+import { Skills } from "@/components/sections/skills"
+import { Projects } from "@/components/sections/projects"
+import { Experience } from "@/components/sections/experience"
+import { Education } from "@/components/sections/education"
+import { Contact } from "@/components/sections/contact"
+import { Footer } from "@/components/layout/footer"
+
 
 export default function Home() {
   return (
-    <div className="min-h-screen ">
+    <div className="flex flex-col min-h-screen">
       <Nav />
-      <Hero />
-      <About />
-      <Services />
-      <Skills />
-      <Education />
-      <Experience />
-      <Projects />
-      <Contact />
-      <footer className="border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-14 items-center justify-center">
-          <p className="text-sm text-muted-foreground">
-            © 2024 Muhammad Haseeb. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <main className="flex-grow">
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Education />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   )
 }

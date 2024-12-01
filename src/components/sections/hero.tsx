@@ -7,7 +7,6 @@ import {
   faDownload,
   faEnvelope,
   faArrowDown,
-  faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { TypeAnimation } from "react-type-animation";
@@ -41,32 +40,32 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-16">
       {/* Subtle Background Effect */}
-      <div className="absolute inset-0 bg-center [mask-image:radial-gradient(white,transparent_85%)] blur-3xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5" />
 
       {/* Main content */}
       <div className="container relative z-10 mx-auto max-w-screen-xl">
         <div className="flex flex-col items-center space-y-8 text-center">
-          {/* Animated title without gradient */}
+          {/* Animated title */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="space-y-4"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-primary">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-foreground font-heading">
               Muhammad Haseeb
             </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground/70 font-bold max-w-3xl mx-auto">
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary font-bold max-w-3xl mx-auto">
               <TypeAnimation
                 sequence={[
-                  "Full Stack Developer", // Type this text
-                  1000, // Wait 2 seconds
-                  "Web Specialist", // Replace with this text
-                  1000, // Wait 2 seconds
+                  "Full Stack Developer",
+                  1000,
+                  "Web Specialist",
+                  1000,
                 ]}
                 wrapper="span"
-                speed={10} // Typing speed in ms
-                repeat={Infinity} // Loop animation
+                speed={50}
+                repeat={Infinity}
               />
             </p>
           </motion.div>
@@ -90,7 +89,7 @@ export function Hero() {
           >
             <Button
               size="lg"
-              className="group text-lg sm:text-xl w-full sm:w-auto shadow-lg hover:scale-105 transition-transform duration-300 bg-primary"
+              className="group text-lg sm:text-xl w-full sm:w-auto shadow-lg hover:shadow-xl transition-all duration-300 bg-primary text-primary-foreground"
               onClick={() =>
                 document
                   .getElementById("projects")
@@ -99,8 +98,8 @@ export function Hero() {
             >
               Explore My Work
               <FontAwesomeIcon
-                icon={faArrowRight}
-                className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
+                icon={faArrowDown}
+                className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform"
               />
             </Button>
             <Button
@@ -124,27 +123,26 @@ export function Hero() {
             {socialLinks.map((link) => (
               <motion.div
                 key={link.label}
-                whileHover={{ scale: 1.2 }} // Increased scale on hover
+                whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  className="rounded-full hover:bg-primary/20 transition-colors duration-300"
-                  asChild
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.label}
+                  className="flex items-center justify-center"
                 >
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={link.label}
-                  >
-                    <FontAwesomeIcon
-                      icon={link.icon}
-                      className="h-8 w-8" // Increased icon size to h-8 w-8
-                    />
-                  </a>
-                </Button>
+                  <FontAwesomeIcon
+                    icon={link.icon}
+                    className=""
+                    style={{
+                      fontSize: "1.7rem",
+                      width: "1.7rem",
+                      height: "1.7rem",
+                    }}
+                  />
+                </a>
               </motion.div>
             ))}
           </motion.div>

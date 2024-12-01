@@ -30,12 +30,12 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-16 md:py-24">
+    <section id="experience" className="py-16 md:py-24 bg-gradient-to-br from-secondary/5 to-primary/5">
       <div className="container px-4 md:px-6">
         <ScrollAnimation>
           <div className="text-center space-y-4 mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">Professional Experience</h2>
-            <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">Professional Experience</h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               My journey in the tech industry and the impact I've made
             </p>
           </div>
@@ -44,14 +44,14 @@ export function Experience() {
         <div className="grid md:grid-cols-2 gap-6">
           {experiences.map((exp, index) => (
             <ScrollAnimation key={index}>
-              <Card className="h-full border-primary/10 border-2">
+              <Card className="h-full border-primary/10 border-2 hover:shadow-lg transition-all duration-300 hover:border-primary/30">
                 <CardHeader className="flex flex-row items-center gap-4">
                   <div className="p-2 bg-primary/20 rounded-lg">
-                    <Briefcase className="h-5 w-5 md:h-6 md:w-6" />
+                    <Briefcase className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <CardTitle className="text-lg md:text-xl">{exp.role}</CardTitle>
-                    <p className="text-sm text-muted-foreground">{exp.company}</p>
+                    <CardTitle className="text-xl md:text-2xl">{exp.role}</CardTitle>
+                    <p className="text-sm font-medium text-primary">{exp.company}</p>
                     <p className="text-sm text-muted-foreground">{exp.duration}</p>
                   </div>
                 </CardHeader>
