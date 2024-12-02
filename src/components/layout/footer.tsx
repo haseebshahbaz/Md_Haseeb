@@ -1,11 +1,15 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faLinkedin,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="py-8 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -26,10 +30,22 @@ export function Footer() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex space-x-6"
           >
-            {[ 
-              { icon: faGithub, href: "https://github.com/haseebshahbaz", label: "GitHub" },
-              { icon: faLinkedin, href: "https://www.linkedin.com/in/mdhaseeb07/", label: "LinkedIn" },
-              { icon: faInstagram, href: "https://www.instagram.com/ch.haseebshahbaz/", label: "Instagram" },
+            {[
+              {
+                icon: faGithub,
+                href: "https://github.com/haseebshahbaz",
+                label: "GitHub",
+              },
+              {
+                icon: faLinkedin,
+                href: "https://www.linkedin.com/in/mdhaseeb07/",
+                label: "LinkedIn",
+              },
+              {
+                icon: faInstagram,
+                href: "https://www.instagram.com/ch.haseebshahbaz/",
+                label: "Instagram",
+              },
             ].map((social) => (
               <a
                 key={social.label}
@@ -46,5 +62,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

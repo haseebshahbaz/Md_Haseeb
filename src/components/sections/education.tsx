@@ -1,45 +1,48 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { GraduationCap, Award } from 'lucide-react'
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ScrollAnimation } from "@/components/ui/scroll-animation"
+import { GraduationCap, Award } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ScrollAnimation } from "@/components/ui/scroll-animation";
 
 const education = [
   {
-    title: 'Higher Secondary School Certificate (HSSC)',
-    institution: 'Board of Intermediate Education Karachi (BIEK)',
-    year: '2023',
+    title: "Higher Secondary School Certificate (HSSC)",
+    institution: "Board of Intermediate Education Karachi (BIEK)",
+    year: "2023",
     icon: <GraduationCap className="h-5 w-5" />,
   },
   {
-    title: 'Secondary School Certificate (SSC)',
-    institution: 'Board of Secondary Education Karachi (BSEK)',
-    year: '2021',
+    title: "Secondary School Certificate (SSC)",
+    institution: "Board of Secondary Education Karachi (BSEK)",
+    year: "2021",
     icon: <GraduationCap className="h-5 w-5" />,
   },
-]
+];
 
 const certifications = [
   {
-    title: 'Web and Mobile App Development',
-    organization: 'Saylani Mass IT Training Program (SMIT)',
-    details: 'Completed Front-end Development, currently learning Back-end',
-    year: '2023 - Present',
+    title: "Web and Mobile App Development",
+    organization: "Saylani Mass IT Training Program (SMIT)",
+    details: "Completed Front-end Development, currently learning Back-end",
+    year: "2023 - Present",
     icon: <Award className="h-5 w-5" />,
   },
   {
-    title: 'Certified Cloud Applied Generative AI Engineer (GenEng)',
-    organization: 'Governor Sindh Initiative for GenAI, Web3, and Metaverse (GIAIC)',
-    details: 'In progress',
-    year: '2023 - Present',
+    title: "Certified Cloud Applied Generative AI Engineer (GenEng)",
+    organization:
+      "Governor Sindh Initiative for GenAI, Web3, and Metaverse (GIAIC)",
+    details: "In progress",
+    year: "2023 - Present",
     icon: <Award className="h-5 w-5" />,
   },
-]
+];
 
 export function Education() {
   return (
-    <section id="education" className="py-16 md:py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
+    <section
+      id="education"
+      className="py-16 md:py-24 bg-gradient-to-br from-primary/5 to-secondary/5"
+    >
       <div className="container px-4 md:px-6">
         <ScrollAnimation>
           <div className="text-center space-y-4 mb-12">
@@ -63,12 +66,18 @@ export function Education() {
                       {item.icon}
                     </div>
                     <div>
-                      <CardTitle className="text-lg md:text-xl">{item.title}</CardTitle>
-                      <p className="text-sm text-muted-foreground">{item.institution}</p>
+                      <CardTitle className="text-lg md:text-xl">
+                        {item.title}
+                      </CardTitle>
+                      <p className="text-sm text-muted-foreground">
+                        {item.institution}
+                      </p>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm font-medium text-primary">{item.year}</p>
+                    <p className="text-sm font-medium text-primary">
+                      {item.year}
+                    </p>
                   </CardContent>
                 </Card>
               </ScrollAnimation>
@@ -76,7 +85,9 @@ export function Education() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-2xl md:text-3xl font-bold mb-6">Certifications</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-6">
+              Certifications
+            </h3>
             {certifications.map((item, index) => (
               <ScrollAnimation key={index}>
                 <Card className="border-primary/10 border-2 hover:shadow-lg transition-all duration-300 hover:border-primary/30">
@@ -85,13 +96,21 @@ export function Education() {
                       {item.icon}
                     </div>
                     <div>
-                      <CardTitle className="text-lg md:text-xl">{item.title}</CardTitle>
-                      <p className="text-sm text-muted-foreground">{item.organization}</p>
+                      <CardTitle className="text-lg md:text-xl">
+                        {item.title}
+                      </CardTitle>
+                      <p className="text-sm text-muted-foreground">
+                        {item.organization}
+                      </p>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-muted-foreground">{item.details}</p>
-                    <p className="text-sm font-medium text-primary mt-2">{item.year}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {item.details}
+                    </p>
+                    <p className="text-sm font-medium text-primary mt-2">
+                      {item.year}
+                    </p>
                   </CardContent>
                 </Card>
               </ScrollAnimation>
@@ -100,6 +119,5 @@ export function Education() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

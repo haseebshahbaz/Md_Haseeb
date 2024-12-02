@@ -1,71 +1,84 @@
-'use client'
+"use client";
 
-import React, { useRef, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Send, Loader2, CheckCircle, XCircle } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import emailjs from 'emailjs-com'
+import React, { useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Loader2,
+  CheckCircle,
+  XCircle,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import emailjs from "emailjs-com";
 
 export function Contact() {
-  const form = useRef<HTMLFormElement | null>(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const form = useRef<HTMLFormElement | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const sendEmail = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    if (!form.current) return
+    if (!form.current) return;
 
     emailjs
       .sendForm(
-        'service_wyylu9l',
-        'template_2fm39oe',
+        "service_wyylu9l",
+        "template_2fm39oe",
         form.current,
-        '8r_Q4k5iOQ0vc11x9'
+        "8r_Q4k5iOQ0vc11x9"
       )
       .then(
         (result) => {
-          console.log(result.text)
-          setSubmitStatus('success')
-          form.current?.reset()
+          console.log(result.text);
+          setSubmitStatus("success");
+          form.current?.reset();
         },
         (error) => {
-          console.log(error.text)
-          setSubmitStatus('error')
+          console.log(error.text);
+          setSubmitStatus("error");
         }
       )
       .finally(() => {
-        setIsSubmitting(false)
-        setTimeout(() => setSubmitStatus('idle'), 5000)
-      })
-  }
+        setIsSubmitting(false);
+        setTimeout(() => setSubmitStatus("idle"), 5000);
+      });
+  };
 
   const contactInfo = [
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
       value: "haseebshahbazpk786@gmail.com",
-      href: "mailto:haseebshahbazpk786@gmail.com"
+      href: "mailto:haseebshahbazpk786@gmail.com",
     },
     {
       icon: <Phone className="h-6 w-6" />,
       title: "Phone",
       value: "+92 302 2951029",
-      href: "tel:+923022951029"
+      href: "tel:+923022951029",
     },
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Location",
       value: "Karachi, KHI, Pakistan",
-      href: "https://maps.google.com/?q=Karachi,Pakistan"
-    }
-  ]
+      href: "https://maps.google.com/?q=Karachi,Pakistan",
+    },
+  ];
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-gradient-to-br from-secondary/5 to-primary/5">
+    <section
+      id="contact"
+      className="py-16 md:py-24 bg-gradient-to-br from-secondary/5 to-primary/5"
+    >
       <div className="container px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,9 +86,12 @@ export function Contact() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Get in Touch</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            Get in Touch
+          </h2>
           <p className="text-lg text-muted-foreground">
-            Have a project in mind? Let's collaborate and create something amazing together.
+            Have a project in mind? Let&apos;s collaborate and create something
+            amazing together.
           </p>
         </motion.div>
 
@@ -101,7 +117,9 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="font-medium">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground">{item.value}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {item.value}
+                    </p>
                   </div>
                 </a>
               ))}
@@ -158,17 +176,19 @@ export function Contact() {
               </Button>
             </form>
             <AnimatePresence>
-              {submitStatus !== 'idle' && (
+              {submitStatus !== "idle" && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3 }}
                   className={`mt-4 p-3 rounded-lg flex items-center ${
-                    submitStatus === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                    submitStatus === "success"
+                      ? "bg-green-100 text-green-800"
+                      : "bg-red-100 text-red-800"
                   }`}
                 >
-                  {submitStatus === 'success' ? (
+                  {submitStatus === "success" ? (
                     <>
                       <CheckCircle className="h-5 w-5 mr-2" />
                       Message sent successfully!
@@ -186,6 +206,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

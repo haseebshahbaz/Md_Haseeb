@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { useTheme } from "next-themes"
-import { Menu, Moon, Sun } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import * as React from "react";
+import { useTheme } from "next-themes";
+import { Menu, Moon, Sun } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const navLinks = [
   { href: "about", label: "About" },
@@ -12,30 +12,36 @@ const navLinks = [
   { href: "projects", label: "Projects" },
   { href: "experience", label: "Experience" },
   { href: "education", label: "Education" },
-  { href: "contact", label: "Contact" }
-]
+  { href: "contact", label: "Contact" },
+];
 
 export function Nav() {
-  const { setTheme, theme } = useTheme()
-  const [isOpen, setIsOpen] = React.useState(false)
+  const { setTheme, theme } = useTheme();
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const closeSheet = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-    closeSheet()
-  }
+    closeSheet();
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container flex h-16 items-center justify-between">
-        <a href="#" onClick={() => scrollToSection('hero')} className="flex items-center space-x-2">
-          <span className="font-bold text-xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">MH</span>
+        <a
+          href="#"
+          onClick={() => scrollToSection("hero")}
+          className="flex items-center space-x-2"
+        >
+          <span className="font-bold text-xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            MH
+          </span>
         </a>
 
         {/* Desktop Navigation */}
@@ -45,8 +51,8 @@ export function Nav() {
               key={href}
               href={`#${href}`}
               onClick={(e) => {
-                e.preventDefault()
-                scrollToSection(href)
+                e.preventDefault();
+                scrollToSection(href);
               }}
               className="text-sm font-medium transition-colors hover:text-primary relative group"
             >
@@ -93,8 +99,8 @@ export function Nav() {
                     href={`#${href}`}
                     className="text-lg font-medium transition-colors hover:text-primary"
                     onClick={(e) => {
-                      e.preventDefault()
-                      scrollToSection(href)
+                      e.preventDefault();
+                      scrollToSection(href);
                     }}
                   >
                     {label}
@@ -106,6 +112,5 @@ export function Nav() {
         </div>
       </nav>
     </header>
-  )
+  );
 }
-

@@ -1,120 +1,124 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Code, Layout, Server, Database, GitGraphIcon as Git, Smartphone, ChevronDown, ChevronUp } from 'lucide-react'
-import { Button } from "@/components/ui/button"
+import React from "react";
+import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLaptopCode,
+  faServer,
+  faTools,
+} from "@fortawesome/free-solid-svg-icons";
 
 const skillCategories = [
   {
-    title: "Frontend Development",
-    icon: <Layout className="h-8 w-8" />,
+    name: "Frontend",
+    icon: faLaptopCode,
     skills: [
-      { name: "HTML", level: 90 },
-      { name: "CSS", level: 90 },
-      { name: "JavaScript", level: 85 },
-      { name: "React", level: 85 },
+      { name: "React", level: 90 },
       { name: "Next.js", level: 80 },
-    ]
+      { name: "JavaScript", level: 85 },
+      { name: "TypeScript", level: 70 },
+      { name: "Tailwind CSS", level: 85 },
+    ],
+    color: "from-blue-400 to-blue-500",
   },
   {
-    title: "Backend Development",
-    icon: <Server className="h-8 w-8" />,
+    name: "Backend",
+    icon: faServer,
     skills: [
-      { name: "Node.js", level: 75 },
-      { name: "Express.js", level: 75 },
-      { name: "MongoDB", level: 70 },
-      { name: "Firebase", level: 85 },
-    ]
+      { name: "Node.js", level: 85 },
+      { name: "Firebase", level: 80 },
+      { name: "RESTful APIs", level: 90 },
+      { name: "MongoDB", level: 75 },
+    ],
+    color: "from-blue-400 to-blue-500",
   },
   {
-    title: "Other Skills",
-    icon: <Code className="h-8 w-8" />,
+    name: "DevOps",
+    icon: faTools,
     skills: [
-      { name: "Git", level: 85 },
-      { name: "RESTful APIs", level: 85 },
-      { name: "TypeScript", level: 75 },
-      { name: "Responsive Design", level: 90 },
-    ]
-  }
-]
+      { name: "GitHub", level: 90 },
+      { name: "Version Control", level: 90 },
+      { name: "Responsive Web", level: 85 },
+    ],
+    color: "from-blue-400 to-blue-500",
+  },
+];
+
+type Skill = {
+  name: string;
+  level: number;
+};
+
+const SkillCard = ({
+  skill,
+  color,
+  index,
+}: {
+  skill: Skill;
+  color: string;
+  index: number;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.8 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.4, delay: index * 0.1 }}
+    viewport={{ once: true }}
+    className={`p-4 rounded-lg shadow-lg bg-gradient-to-br ${color} text-white transform transition-all duration-300 hover:scale-105 hover:-rotate-2 relative group cursor-pointer`}
+  >
+    <h3 className="text-lg font-semibold text-center">{skill.name}</h3>
+    {/* Tooltip */}
+    <span className="absolute bottom-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+      Proficiency: {skill.level}%
+    </span>
+    {/* Progress Bar */}
+    <div className="w-full bg-white bg-opacity-20 h-2 rounded-full mt-4">
+      <div
+        className="bg-white h-2 rounded-full"
+        style={{ width: `${skill.level}%` }}
+      ></div>
+    </div>
+  </motion.div>
+);
 
 export function Skills() {
-  const [expandedCategory, setExpandedCategory] = useState<string | null>(null)
-
   return (
-    <section id="skills" className="py-16 md:py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
-      <div className="container px-4 md:px-6">
+    <motion.section
+      id="skills"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="py-16 md:py-24 bg-gradient-to-br from-secondary/5 to-primary/5 relative"
+    >
+      <div className="container px-4 md:px-6 mx-auto">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-foreground">
-          Skills & Expertise
+          Skills Showcase
         </h2>
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {skillCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              className="py-2 bg-card rounded-lg shadow-lg overflow-hidden"
-            >
-              <Button
-                variant="ghost"
-                className="w-full p-6 flex items-center justify-between text-left"
-                onClick={() => setExpandedCategory(expandedCategory === category.title ? null : category.title)}
-              >
-                <div className="flex items-center">
-                  <div className=" bg-primary/10 rounded-full mr-4">
-                    {category.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold">{category.title}</h3>
-                </div>
-                {expandedCategory === category.title ? (
-                  <ChevronUp className="h-6 w-6" />
-                ) : (
-                  <ChevronDown className="h-6 w-6" />
-                )}
-              </Button>
-              <AnimatePresence>
-                {expandedCategory === category.title && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="px-6 pb-6"
-                  >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {category.skills.map((skill, skillIndex) => (
-                        <motion.div
-                          key={skill.name}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.3, delay: skillIndex * 0.1 }}
-                          className="bg-background rounded-lg p-4 shadow-inner"
-                        >
-                          <div className="flex justify-between items-center mb-2">
-                            <span className="font-medium">{skill.name}</span>
-                            <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                          </div>
-                          <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                            <motion.div
-                              className="h-full bg-primary"
-                              initial={{ width: 0 }}
-                              animate={{ width: `${skill.level}%` }}
-                              transition={{ duration: 1, delay: 0.5 }}
-                            />
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+            <div key={category.name} className="space-y-6">
+              <h3 className="flex items-center gap-2 text-2xl font-bold text-gray-700 dark:text-gray-300">
+                <FontAwesomeIcon
+                  icon={category.icon}
+                  className="text-primary"
+                />{" "}
+                {category.name}
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {category.skills.map((skill, skillIndex) => (
+                  <SkillCard
+                    key={skill.name}
+                    skill={skill}
+                    color={category.color}
+                    index={categoryIndex * 5 + skillIndex}
+                  />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
-    </section>
-  )
+    </motion.section>
+  );
 }
-
