@@ -19,9 +19,7 @@ import emailjs from "emailjs-com";
 export function Contact() {
   const form = useRef<HTMLFormElement | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,10 +73,7 @@ export function Contact() {
   ];
 
   return (
-    <section
-      id="contact"
-      className="py-16 md:py-24 bg-gradient-to-br from-secondary/5 to-primary/5"
-    >
+    <section id="contact" className="py-16 md:py-24 bg-gradient-to-br from-secondary/5 to-primary/5">
       <div className="container px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -90,12 +85,12 @@ export function Contact() {
             Get in Touch
           </h2>
           <p className="text-lg text-muted-foreground">
-            Have a project in mind? Let&apos;s collaborate and create something
-            amazing together.
+            Have a project in mind? Let's collaborate and create something amazing together.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -117,15 +112,14 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="font-medium">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground">
-                      {item.value}
-                    </p>
+                    <p className="text-sm text-muted-foreground">{item.value}</p>
                   </div>
                 </a>
               ))}
             </div>
           </motion.div>
 
+          {/* Send Message Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -175,6 +169,7 @@ export function Contact() {
                 )}
               </Button>
             </form>
+
             <AnimatePresence>
               {submitStatus !== "idle" && (
                 <motion.div

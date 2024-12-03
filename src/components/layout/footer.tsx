@@ -14,13 +14,13 @@ export function Footer() {
   return (
     <footer className="py-8 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:justify-between">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-md text-muted-foreground">
+            <p className="text-md text-muted-foreground text-center sm:text-left">
               &copy; {currentYear} Muhammad Haseeb. All rights reserved.
             </p>
           </motion.div>
@@ -28,7 +28,7 @@ export function Footer() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex space-x-6"
+            className="flex flex-wrap justify-center gap-4 sm:gap-6"
           >
             {[
               {
