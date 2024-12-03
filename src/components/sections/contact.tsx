@@ -85,7 +85,7 @@ export function Contact() {
             Get in Touch
           </h2>
           <p className="text-lg text-muted-foreground">
-            Have a project in mind? Let's collaborate and create something amazing together.
+          Have a project in mind? Let&apos;s collaborate and create something amazing together.
           </p>
         </motion.div>
 
