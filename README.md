@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Muhammad Haseeb's Portfolio Website
 
-## Getting Started
+Welcome to the repository of my personal portfolio website. This project showcases my skills, projects, and professional journey as a Full Stack Developer.
 
-First, run the development server:
+## 🚀 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[View Live Website](https://mdhaseeb.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- React
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- EmailJS
+- FontAwesome
+- Lucide React
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Project Structure
 
-## Learn More
+The project is structured into several key components:
 
-To learn more about Next.js, take a look at the following resources:
+- `Hero`: The landing section introducing myself and my role.
+- `About`: Detailed information about my background and skills.
+- `Skills`: A showcase of my technical skills and proficiencies.
+- `Projects`: Highlights of my key projects with details and links.
+- `Experience`: An overview of my professional experience.
+- `Education`: Information about my educational background and certifications.
+- `Contact`: A form for visitors to get in touch with me.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌟 Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Responsive design for optimal viewing on all device sizes
+- Interactive UI elements with smooth animations
+- Dynamic typing effect in the hero section
+- Skill cards with proficiency indicators
+- Project showcase with modal for detailed view
+- Contact form integrated with EmailJS for easy communication
+- Dark mode support
 
-## Deploy on Vercel
+## 🚀 Getting Started
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To run this project locally:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone the repository:
+
