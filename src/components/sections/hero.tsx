@@ -14,7 +14,7 @@ import { TypeAnimation } from "react-type-animation";
 export function Hero() {
   const handleDownloadCV = () => {
     window.open(
-      "https://drive.google.com/file/d/1TOdluc4au2beWnA4XxH2NTJvyQj3c0_7/view",
+      "https://drive.google.com/file/d/1VnXo_hfdrYSkjeRX1UrytQWXvRK_Wqhu/view",
       "_blank"
     );
   };

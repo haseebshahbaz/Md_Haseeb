@@ -6,8 +6,8 @@ import { StaticImageData } from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ExternalLink, Github, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ToolscapeImg from "../../app/assets/Toolscape.png";
-import BlogistaImg from "../../app/assets/Blogista.png";
+import MorentImg from "../../app/assets/Morent.png";
+import ExclusiveImg from "../../app/assets/ExclusiveImg.png";
 import InterneeImg from "../../app/assets/Internee.png";
 
 type Project = {
@@ -23,6 +23,29 @@ type Project = {
 
 const projects: Project[] = [
   {
+    id: "exclusive",
+    title: "Exclusive",
+    description:
+      "Exclusive is a sleek and modern e-commerce platform crafted with precision to ensure a seamless shopping experience. Designed with pixel-perfect accuracy from Figma, it features a responsive layout, intuitive navigation, and optimized performance. This project demonstrates expertise in delivering a visually appealing and user-friendly interface that elevates the online shopping experience.",
+    technologies: ["Next.js", "Tailwind CSS", "shadecn/ui"],
+    githubLink: "https://github.com/haseebshahbaz/Exclusive",
+    liveLink: "https://shopexclusive.vercel.app/",
+    imageUrl: ExclusiveImg,
+    category: "Frontend",
+  },
+
+  {
+    id: "morent",
+    title: "Morent",
+    description:
+      "Morent is a modern car rental platform that prioritizes exceptional UI/UX design, ensuring seamless user interactions and an intuitive experience. During the Morent UI/UX Hackathon, I replicated the provided Figma design pixel-perfect, earning recognition for its precision and accessibility. The platform delivers an enhanced car rental booking experience, built with a strong focus on both aesthetics and usability.",
+    technologies: ["Next.js", "Tailwind CSS", "shadecn/ui"],
+    githubLink: "https://github.com/haseebshahbaz/Morent_NextjsHackathonUI",
+    liveLink: "https://morent-nextjs-hackathon-ui.vercel.app/",
+    imageUrl: MorentImg,
+    category: "Frontend",
+  },
+  {
     id: "internee-pk",
     title: "Internee.pk Website Redesign",
     description:
@@ -32,28 +55,6 @@ const projects: Project[] = [
     liveLink: "https://haseebshahbaz.github.io/Internee.pk/",
     imageUrl: InterneeImg,
     category: "Frontend",
-  },
-  {
-    id: "toolscape",
-    title: "Toolscape",
-    description:
-      "A comprehensive tool-based platform that offers various AI tools like image generation, icon generation, and more.",
-    technologies: ["React", "Next.js", "CSS"],
-    githubLink: "https://github.com/haseebshahbaz/Toolscape",
-    liveLink: "https://toolscape.vercel.app/",
-    imageUrl: ToolscapeImg,
-    category: "Frontend",
-  },
-  {
-    id: "blogista",
-    title: "Blogista",
-    description:
-      "A platform for creating and sharing blog posts, designed to offer a user-friendly experience. Developed using Next.js, Firebase, and Tailwind CSS.",
-    technologies: ["Next.js", "Tailwind CSS", "Firebase"],
-    githubLink: "https://github.com/haseebshahbaz/Blogista",
-    liveLink: "https://blogista-blog-website.vercel.app/",
-    imageUrl: BlogistaImg,
-    category: "Full Stack",
   },
 ];
 

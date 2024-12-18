@@ -94,7 +94,7 @@ export function About() {
                 className="group relative overflow-hidden bg-primary text-primary-foreground hover:bg-primary/90"
                 onClick={() =>
                   window.open(
-                    "https://drive.google.com/file/d/1TOdluc4au2beWnA4XxH2NTJvyQj3c0_7/view",
+                    "https://drive.google.com/file/d/1VnXo_hfdrYSkjeRX1UrytQWXvRK_Wqhu/view",
                     "_blank"
                   )
                 }
