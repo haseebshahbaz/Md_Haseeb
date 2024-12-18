@@ -39,9 +39,4 @@ The project is structured into several key components:
 - Contact form integrated with EmailJS for easy communication
 - Dark mode support
 
-## 🚀 Getting Started
-
-To run this project locally:
-
-1. Clone the repository:
 
